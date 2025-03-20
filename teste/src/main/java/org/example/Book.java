@@ -20,6 +20,10 @@ public class Book {
 
         ZonedDateTime currentTime = ZonedDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        ZonedDateTime endClass = ZonedDateTime.of(2025, 3, 19,
+                21, 43, 0, 0, ZoneId.of("America/Sao_Paulo"));
+
         ZonedDateTime specificZonedDateTime = ZonedDateTime.of(2025, 3, 19,
                 21, 36, 0, 0, ZoneId.of("America/Sao_Paulo"));
         String formattedDateTime = currentTime.format(formatter);
@@ -32,5 +36,11 @@ public class Book {
             System.out.println("Wait until Sale!");
             onSale = false;
         }
+
+        if(currentTime.isAfter(endClass)){
+            System.out.println("Fim da Aula");
+            onSale = false;
+        }
+
     }
 }
